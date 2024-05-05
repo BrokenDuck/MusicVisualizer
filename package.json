@@ -1,0 +1,25 @@
+{
+  "name": "music-visualizer",
+  "version": "1.0.0",
+  "description": "Visualizes music using common music colors",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jonathan Maillefaud",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "three": "^0.164.1",
+    "tweakpane": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/three": "^0.163.0",
+    "vite": "^5.2.10",
+    "vite-plugin-glsl": "^1.3.0"
+  }
+}
