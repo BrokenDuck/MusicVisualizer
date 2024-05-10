@@ -10,9 +10,6 @@ import { SoftGlitchPass } from './passes/SoftGlitchPass'
 // To easily modify values in dev mode
 import { Pane } from 'tweakpane'
 
-// For animations
-import gsap from 'gsap'
-
 // GLSL Shader Definitions
 import noisyVertexShader from './glsl/noisy-vertex-shader.vert'
 import noisyFragmentShader from './glsl/noisy-fragment-shader.frag'
@@ -132,21 +129,6 @@ class Visualizer {
             const spikeSizeUniform = mesh.material.uniforms[this.spikeSizeUniformName]
             avgFreqUniform.value = freq
             spikeSizeUniform.value = spikeData
-            // gsap.to(avgFreqUniform, {
-            //     duration: 1.5,
-            //     ease: 'Slow.easeOut',
-            //     value: freq,
-            // })
-            // gsap.to(spikeSizeUniform, {
-            //     duration: 0.5,
-            //     ease: 'Slow.easeOut',
-            //     values: spikeData,
-            // })
-            // gsap.to(colorUniform, {
-            //     duration: 0.5,
-            //     ease: 'Slow.easeOut',
-            //     value: colorData,
-            // })
         }
     }
 
@@ -304,7 +286,6 @@ function init() {
 
 }
 
-let lastTimestamp = 0;
 function animate(timestamp) {
     requestAnimationFrame(animate)
 
@@ -314,7 +295,7 @@ function animate(timestamp) {
 
     visualizer.updateSpike()
     visualizer.updateColor()
-    
+
     softGlitchPass.factor = meshes.noisyBall.material.uniforms["uAudioAverageFrequency"] > 0.6 ? 0.7 : 0.1
 
     stats.update()
